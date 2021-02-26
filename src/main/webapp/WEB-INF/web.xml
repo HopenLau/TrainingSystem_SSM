@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>TrainingSystem_SSM</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+
+
+
+	<servlet>
+		<servlet-name>ics</servlet-name>
+		<jsp-file>/WEB-INF/jsp/ics.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ics</servlet-name>
+		<url-pattern>/ics</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>HelloMaven</display-name>
+		<servlet-name>HelloMaven</servlet-name>
+		<servlet-class>com.mytest.serlvet.HelloMaven</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloMaven</servlet-name>
+		<url-pattern>/HelloMaven</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>TestServlet</display-name>
+		<servlet-name>TestServlet</servlet-name>
+		<servlet-class>com.mytest.serlvet.TestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/TestServlet</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!--修改DispatcherServlet對應嘅上下文配置，默認為/WEB-INF/$servlet-name$-servlet.xml. -->
+		<!--改為/WEB-INF/configs/spring/mvc-dispatcher-servlet.xml. -->
+		<init-param>
+			<param-name>contextConfiglocation</param-name>
+			<param-value>/WEB-INF/configs/spring/spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- message mapping -->
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<!--DispatcherServlet攔截所有嘅請求 -->
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+</web-app>
